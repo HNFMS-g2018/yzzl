@@ -129,4 +129,21 @@ namespace begin_flash {
 		mar.ob_print();
 		mar.mid_disapeear();
 	}
+
+	void progress_bar(double x, int size) {
+		size *= 8;
+		int need;
+		for(need=size*x; need>=8; need -= 8)
+			printf("█"); // 完整方块
+		switch(need) {
+			case 1: printf("▏"); break; // 八分之一
+			case 2: printf("▎"); break; // 八分之二
+			case 3: printf("▍"); break; // 八分之三
+			case 4: printf("▌"); break; // 八分之四
+			case 5: printf("▋"); break; // 八分之五
+			case 6: printf("▊"); break; // 八分之六
+			case 7: printf("▉"); break; // 八分之七
+		}
+		puts("");
+	}
 };
