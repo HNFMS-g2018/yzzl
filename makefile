@@ -20,6 +20,7 @@ build:
 	mkdir -p build
 
 build/main/yzzl.o: main/yzzl.cpp include/*
+	mkdir -p build/main
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
 build/begin_flash.o: source/begin_flash.cpp include/*
@@ -65,13 +66,14 @@ build/ascii_flash.o: source/ascii_flash.cpp include/*
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
 clean:
-	rm -f build/*.o dist/yzzl
+	rm -rf build/* dist/*
 	# cd lib ; make clean ; cd ..
 
 dist/yfl: build/main/yfl.o build dist ${OBJECT}
 	${COMPILER} ${OBJECT} $< -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
 
 build/main/yfl.o: main/yfl.cpp
+	mkdir -p build/main
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
 /usr/bin/yzzl: dist/yzzl
