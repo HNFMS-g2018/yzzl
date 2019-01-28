@@ -13,7 +13,7 @@ namespace map {
 			begin_flash::thanks();
 	}
 	Maincity::Maincity():
-		Map(10, 20) {
+		Map(10, 20, "主城") {
 		for(int i=0;i<10;i++)
 			for(int j=0;j<10;j++)
 					_floor(i, j) = new floor::Grass();

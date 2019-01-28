@@ -14,11 +14,12 @@ namespace map {
 		pos::Coord_map<people::People*> _people;
 	public:
 		int high, width;
+		std::string name;
 		int people_move(people::People*, pos::Pos, pos::Pos);
 		virtual pos::Pos recieve(people::People *) = 0;
 		floor::Floor *get_floor(pos::Pos, int, int);
 		people::People *get_people(pos::Pos, int, int);
-		Map(int, int);
+		Map(int, int, std::string);
 		virtual ~Map();
 	};
 };

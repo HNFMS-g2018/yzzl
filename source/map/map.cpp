@@ -3,8 +3,8 @@
 #include "../../include/people/people.h"
 
 namespace map {
-	Map::Map(int high, int width):
-		_floor(high, width), _people(high, width), high(high), width(width) {
+	Map::Map(int high, int width, std::string name):
+		_floor(high, width), _people(high, width), high(high), width(width), name(name) {
 	}
 	Map::~Map() {
 		for(int i=0;i<high;i++)
