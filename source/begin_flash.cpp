@@ -131,6 +131,9 @@ namespace begin_flash {
 	}
 
 	void progress_bar(double x, int size) {
+		cursor::right(size);
+		putchar('|');
+		cursor::left(size + 1);
 		size *= 8;
 		int need;
 		for(need=size*x; need>=8; need -= 8)
