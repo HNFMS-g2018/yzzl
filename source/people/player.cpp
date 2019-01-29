@@ -41,12 +41,11 @@ namespace people {
 		}
 		return res;
 	}
-	void Player::_print_map() {
-		const int ha_high = 6, ha_width = 6; // 视野的半径（闭区间）
+	void Player::_print_map(int high, int width) {
 		cursor::clear_screen();
 		cursor::set_to(0, 0);
-		for(int i=-ha_high; i<=ha_high; i++) {
-			for(int j=-ha_width; j<=ha_width; j++) {
+		for(int i=-high; i<=high; i++) {
+			for(int j=-width; j<=width; j++) {
 				if(not i and not j) { // Player 本身
 					color->change_fore();
 					putchar(_get_face());
@@ -72,14 +71,15 @@ namespace people {
 		}
 		color->reset_fore();
 	}
-	void Player::_print_info() {
-		const int ha_high = 13, ha_width = 13; // 视野的直径
-		cursor::set_to(0, ha_width);
+	void Player::_print_info(int high, int width) {
+		cursor::set_to(1, width + 1);
 		printf("当前位置：%s (%d, %d)\n",
 				get_map()->name.c_str(), get_pos()._x, get_pos()._y);
-		cursor::set_to(ha_high, 0);
+		cursor::set_to(2, width + 1);
 		printf("Your HP: ");
 		begin_flash::progress_bar(double(m_hp) / get_hpmax(), 20);
+		cursor::set_to(high, 0);
+		// To do something
 	}
 	void Player::_analyze_choose(char cs) {
 		pos::Pos ps = get_pos();
@@ -92,8 +92,10 @@ namespace people {
 		}
 	}
 	void Player::_todo() {
-		_print_map();
-		_print_info();
+		const int high = 6, width = 6; // 视野半径
+		_print_map(high, width);
+		begin_flash::box(pos::Pos(0, width * 2 + 1), 5, 40, 0);
+		_print_info(high << 1 | 1, width << 1 | 1);
 		int choose = input::ifgetch(0.2);
 		if(~ choose)
 			_analyze_choose(choose);
