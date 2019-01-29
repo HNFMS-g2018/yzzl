@@ -5,8 +5,8 @@ OBJECT=build/begin_flash.o build/color.o build/cursor.o build/pos.o \
        build/floor.o build/base_floor.o build/users.o build/maincity.o \
 	   build/ascii_flash.o
 
-dist/yzzl: build dist ${OBJECT} build/main_yzzl.o build/pylock
-	${COMPILER} ${OBJECT} build/main_yzzl.o -o $@ -lpthread -std=c++11 # -I/usr/include/python3.6m -lpython3.6m
+dist/yzzl: build dist ${OBJECT} build/main/yzzl.o build/pylock
+	${COMPILER} ${OBJECT} build/main/yzzl.o -o $@ -lpthread -std=c++11 # -I/usr/include/python3.6m -lpython3.6m
 
 build/pylock:
 	sudo apt install python3 python3-pip
@@ -69,8 +69,8 @@ clean:
 	rm -rf build/* dist/*
 	# cd lib ; make clean ; cd ..
 
-dist/yfl: build dist ${OBJECT} build/main_yfl.o
-	${COMPILER} ${OBJECT} build/main_yfl.o -o $@ -lpthread -std=c++11
+dist/yfl: build dist ${OBJECT} build/main/yfl.o
+	${COMPILER} ${OBJECT} build/main/yfl.o -o $@ -lpthread -std=c++11
 
 build/main/yfl.o: main/yfl.cpp
 	mkdir -p build/main
