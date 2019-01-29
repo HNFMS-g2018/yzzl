@@ -149,4 +149,37 @@ namespace begin_flash {
 		}
 		puts("");
 	}
+	void box(pos::Pos p, int high, int width, int type) {
+		/* 边框 1
+		   ╔════╗
+		   ║    ║
+           ╚════╝
+		   */
+		/* 边框 2
+		   ┌────┐
+		   │    │
+           └────┘
+		   */
+		const std::string s1 = "┌", s2 = "│", s3 = "└", s4 = "─", s5 = "┘", s6 = "┐";
+		cursor::set_to(p._x, p._y);
+		std::cout << s1;
+		for(int i=1; i<=high; i++) {
+			cursor::set_to(p._x + i, p._y);
+			std::cout << s2;
+			cursor::set_to(p._x + i, p._y + width + 1);
+			std::cout << s2;
+		}
+		cursor::set_to(p._x + high + 1, p._y);
+		std::cout << s3;
+		for(int j=1; j<=width; j++) {
+			cursor::set_to(p._x, p._y + j);
+			std::cout << s4;
+			cursor::set_to(p._x + high + 1, p._y + j);
+			std::cout << s4;
+		}
+		cursor::set_to(p._x + high + 1, p._y + width + 1);
+		std::cout << s5;
+		cursor::set_to(p._x, p._y + width + 1);
+		std::cout << s6;
+	}
 };
