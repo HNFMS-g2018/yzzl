@@ -2,37 +2,26 @@
 #include <unistd.h>
 #include <string>
 
+
 namespace who {
-	extern std::string get_user_home(uid_t uid)
+	extern std::string user_home(uid_t uid)
 	{
+		if(uid == 0x66ccf) uid = geteuid();
 		struct passwd *pass = getpwuid(uid);
 		return std::string(pass->pw_dir);
 	}
 
-	extern std::string get_user_shell(uid_t uid)
+	extern std::string user_shell(uid_t uid)
 	{
+		if(uid == 0x66ccf) uid = geteuid();
 		struct passwd *pass = getpwuid(uid);
 		return std::string(pass->pw_shell);
 	}
 
-	extern std::string get_user_name(uid_t uid)
+	extern std::string user_name(uid_t uid)
 	{
+		if(uid == 0x66ccf) uid = geteuid();
 		struct passwd *pass = getpwuid(uid);
 		return std::string(pass->pw_name);
-	}
-
-	extern std::string current_user_name(void)
-	{
-		return get_user_name(geteuid());
-	}
-
-	extern std::string current_user_shell(void)
-	{
-		return get_user_shell(geteuid());
-	}
-
-	extern std::string current_user_home(void)
-	{
-		return get_user_home(geteuid());
 	}
 };
