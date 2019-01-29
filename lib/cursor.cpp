@@ -25,7 +25,7 @@ namespace cursor {
 		fflush(stdout);
 	}
 	void to_head() {
-		printf("\n\033[1A");
+		putchar('\r');
 		fflush(stdout);
 	}
 	void clear_screen() {
@@ -34,6 +34,22 @@ namespace cursor {
 	}
 	void set_to(int x, int y) {
 		printf("\033[%d;%dH", x, y);
+		fflush(stdout);
+	}
+	void back(int times) {
+		// 回退（删除） [times] 个字符
+		while(times --)
+			putchar('\b');
+		fflush(stdout);
+	}
+	void hide() {
+		// 隐藏光标
+		printf("\033[?25l");
+		fflush(stdout);
+	}
+	void display() {
+		// 显示光标
+		printf("\033[?25h");
 		fflush(stdout);
 	}
 };
