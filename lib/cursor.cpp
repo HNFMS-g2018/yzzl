@@ -17,11 +17,11 @@ namespace cursor {
 		fflush(stdout);
 	}
 	void left(int times) {
-		printf("\033[%dC", times);
+		printf("\033[%dD", times);
 		fflush(stdout);
 	}
 	void right(int times) {
-		printf("\033[%dD", times);
+		printf("\033[%dC", times);
 		fflush(stdout);
 	}
 	void to_head() {

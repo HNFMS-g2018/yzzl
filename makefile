@@ -19,7 +19,8 @@ dist:
 build:
 	mkdir -p build
 
-build/main_yzzl.o: main/yzzl.cpp include/*
+build/main/yzzl.o: main/yzzl.cpp include/*
+	mkdir -p build/main
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
 build/begin_flash.o: source/begin_flash.cpp include/*
@@ -65,13 +66,14 @@ build/ascii_flash.o: source/ascii_flash.cpp include/*
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
 clean:
-	rm -f build/*.o dist/yzzl
+	rm -rf build/* dist/*
 	# cd lib ; make clean ; cd ..
 
 dist/yfl: build dist ${OBJECT} build/main_yfl.o
 	${COMPILER} ${OBJECT} build/main_yfl.o -o $@ -lpthread -std=c++11
 
-build/main_yfl.o: main/yfl.cpp
+build/main/yfl.o: main/yfl.cpp
+	mkdir -p build/main
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
 
 /usr/bin/yzzl: dist/yzzl

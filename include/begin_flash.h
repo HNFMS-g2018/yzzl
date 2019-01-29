@@ -19,5 +19,6 @@ namespace begin_flash {
 	void welcome();
 	void flash(std::string, bool);
 	void thanks();
+	void progress_bar(double, int);
 };
 #endif

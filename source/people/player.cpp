@@ -70,6 +70,13 @@ namespace people {
 			std::cout << std::endl;
 		}
 	}
+	void Player::_print_info() {
+		const int ha_high = 13, ha_width = 13; // 视野的直径
+		cursor::set_to(0, ha_width);
+		printf("当前位置：%s (%d, %d)\n",
+				get_map()->name.c_str(), get_pos()._x, get_pos()._y);
+		cursor::set_to(ha_high, 0);
+	}
 	void Player::_analyze_choose(char cs) {
 		pos::Pos ps = get_pos();
 		switch(cs) {
@@ -82,6 +89,7 @@ namespace people {
 	}
 	void Player::_todo() {
 		_print_map();
+		_print_info();
 		int choose = input::ifgetch(0.2);
 		if(~ choose)
 			_analyze_choose(choose);
