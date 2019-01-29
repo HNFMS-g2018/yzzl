@@ -4,6 +4,7 @@
 #include "../../include/all_map.h"
 #include "../../include/all_floor.h"
 #include "../../include/input.h"
+#include "../../include/begin_flash.h"
 
 namespace people {
 	Player::Player():
@@ -76,6 +77,8 @@ namespace people {
 		printf("当前位置：%s (%d, %d)\n",
 				get_map()->name.c_str(), get_pos()._x, get_pos()._y);
 		cursor::set_to(ha_high, 0);
+		printf("Your HP: ");
+		begin_flash::progress_bar(double(m_hp) / get_hpmax(), 20);
 	}
 	void Player::_analyze_choose(char cs) {
 		pos::Pos ps = get_pos();
