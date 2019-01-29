@@ -1,12 +1,12 @@
 COMPILER=g++
-CXXFLAGS=-Wall -Werror -I ./include/
+CXXFLAGS=-Wall -Werror -I ./include/ -std=c++11
 OBJECT=build/begin_flash.o build/color.o build/cursor.o build/pos.o \
        build/ytime.o build/input.o build/people.o build/player.o build/map.o \
        build/floor.o build/base_floor.o build/users.o build/maincity.o \
 	   build/ascii_flash.o
 
 dist/yzzl: build dist ${OBJECT} build/main_yzzl.o
-	${COMPILER} ${OBJECT} build/main_yzzl.o -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
+	${COMPILER} ${OBJECT} build/main_yzzl.o -o $@ -lpthread -std=c++11
 
 # lib/build/lock: lib/*.cpp
 	# cd lib ; make ; cd ..
@@ -67,7 +67,7 @@ clean:
 	# cd lib ; make clean ; cd ..
 
 dist/yfl: build dist ${OBJECT} build/main_yfl.o
-	${COMPILER} ${OBJECT} build/main_yfl.o -o $@ -lpthread -std=c++11 -I/usr/include/python3.6m -lpython3.6m
+	${COMPILER} ${OBJECT} build/main_yfl.o -o $@ -lpthread -std=c++11 
 
 build/main_yfl.o: main/yfl.cpp
 	${COMPILER} ${CXXFLAGS} -c $< -o $@
