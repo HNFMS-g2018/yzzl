@@ -36,4 +36,10 @@ namespace cursor {
 		printf("\033[%d;%dH", x, y);
 		fflush(stdout);
 	}
+	void back(int times) {
+		// 回退（删除） [times] 个字符
+		while(times --)
+			putchar('\b');
+		fflush(stdout);
+	}
 };
