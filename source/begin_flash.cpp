@@ -149,7 +149,7 @@ namespace begin_flash {
 		}
 		puts("");
 	}
-	void box(pos::Pos p, int high, int width, int type) {
+	void box(pos::Pos p, int high, int width, int type, color::Color *cr) {
 		/* 边框 1
 		   ╔════╗
 		   ║    ║
@@ -160,6 +160,7 @@ namespace begin_flash {
 		   │    │
            └────┘
 		   */
+		cr->change_fore();
 		const std::string s1 = "┌", s2 = "│", s3 = "└", s4 = "─", s5 = "┘", s6 = "┐";
 		cursor::set_to(p._x, p._y);
 		std::cout << s1;
@@ -181,5 +182,6 @@ namespace begin_flash {
 		std::cout << s5;
 		cursor::set_to(p._x, p._y + width + 1);
 		std::cout << s6;
+		cr->reset_fore();
 	}
 };

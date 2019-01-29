@@ -94,13 +94,15 @@ namespace people {
 	void Player::_todo() {
 		const int high = 6, width = 6; // 视野半径
 		_print_map(high, width);
-		begin_flash::box(pos::Pos(0, width * 2 + 1), 5, 40, 0);
+		color::Color *cr = new color::Random();
+		begin_flash::box(pos::Pos(0, width * 2 + 1), 5, 40, 0, cr);
 		_print_info(high << 1 | 1, width << 1 | 1);
 		int choose = input::ifgetch(0.2);
 		if(~ choose)
 			_analyze_choose(choose);
 		else
 			_fg = ' ';
+		delete cr;
 	}
 };
 
