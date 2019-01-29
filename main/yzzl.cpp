@@ -14,6 +14,7 @@ int main(int, const char **) {
 	while(self->get_map()) {
 		self->todo();
 	}
+	remove("py_output");
 	/* delete self; */ // emm delete city 的同时会 delete self.
 	delete city;
 }
