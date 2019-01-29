@@ -6,6 +6,14 @@
 #include <cstdio>
 
 namespace ytime {
+	void ysleep(int time) {
+		// 休眠 [time] 毫秒
+		unsigned long long end = clock() + time;
+		while(clock() < end)
+			if(input::kbhit() and input::getch() == '~') // 期间不允许用户输入
+				break;
+	}
+
 	void ysleep(double time) {
 		// 休眠 [time] 秒
 		unsigned long long end = clock() + (unsigned long long)(time * 1000);
