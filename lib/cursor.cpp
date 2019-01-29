@@ -42,4 +42,14 @@ namespace cursor {
 			putchar('\b');
 		fflush(stdout);
 	}
+	void hide() {
+		// 隐藏光标
+		printf("\033[?25l");
+		fflush(stdout);
+	}
+	void display() {
+		// 显示光标
+		printf("\033[?25h");
+		fflush(stdout);
+	}
 };

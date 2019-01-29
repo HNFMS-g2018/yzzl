@@ -9,6 +9,8 @@ namespace cursor {
 	void clear_screen();
 	void set_to(int, int);
 	void back(int=1);
+	void hide();
+	void display();
 };
 #endif
 
