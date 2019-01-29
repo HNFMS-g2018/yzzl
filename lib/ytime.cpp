@@ -3,11 +3,12 @@
 #include "../include/ytime.h"
 #include "../include/input.h"
 #include <ctime>
+#include <cstdio>
 
 namespace ytime {
 	void ysleep(double time) {
 		// 休眠 [time] 秒
-		unsigned long long end = clock() + time * 1000;
+		unsigned long long end = clock() + (unsigned long long)(time * 1000);
 		while(clock() < end)
 			if(input::kbhit() and input::getch() == '~') // 期间不允许用户输入
 				break;
