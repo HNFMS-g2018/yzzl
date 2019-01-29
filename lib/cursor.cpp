@@ -33,7 +33,8 @@ namespace cursor {
 		fflush(stdout);
 	}
 	void set_to(int x, int y) {
-		printf("\033[%d;%dH", x, y);
+		// 以 (0, 0) 为原点
+		printf("\033[%d;%dH", x + 1, y + 1);
 		fflush(stdout);
 	}
 	void back(int times) {
