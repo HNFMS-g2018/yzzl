@@ -70,6 +70,7 @@ namespace people {
 			}
 			std::cout << std::endl;
 		}
+		color->reset_fore();
 	}
 	void Player::_print_info() {
 		const int ha_high = 13, ha_width = 13; // 视野的直径
