@@ -25,7 +25,7 @@ namespace cursor {
 		fflush(stdout);
 	}
 	void to_head() {
-		printf("\n\033[1A");
+		putchar('\r');
 		fflush(stdout);
 	}
 	void clear_screen() {
