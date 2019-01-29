@@ -5,19 +5,20 @@
 
 int main(void)
 {
-	int start, end, start1, end1, i;
+	unsigned long long start, end, start1, end1;
+	int i;
 
 	puts("Test ysleep");
 	start = ytime::clock();
 	ytime::ysleep(2);
 	end = ytime::clock();
-	printf("sleep 2s, %d\n", end - start);
+	printf("sleep 2s, %lld\n", end - start);
 
 	puts("Test ycsleep");
 	start = ytime::clock();
 	ytime::ycsleep(2);
 	end = ytime::clock();
-	printf("sleep 2s, %d\n", end - start);
+	printf("sleep 2s, %lld\n", end - start);
 
 	puts("Test getch() input time(first)");
 	input::getch();
@@ -28,8 +29,8 @@ int main(void)
 	end = ytime::clock();
 	end1 = ytime::cclock();
 
-	printf("clock():  %d - %d = %d\n", end, start, end - start);
-	printf("cclock(): %d - %d = %d\n", end1, start1, end1 - start1);
+	printf("clock():  %lld - %lld = %lld\n", end, start, end - start);
+	printf("cclock(): %lld - %lld = %lld\n", end1, start1, end1 - start1);
 
 	puts("Test starndard library(getchar()) input time(first)");
 	while (getchar() != '\n');
@@ -39,8 +40,8 @@ int main(void)
 	while (getchar() != '\n');
 	end = ytime::clock();
 	end1 = ytime::cclock();
-	printf("clock():  %d - %d = %d\n", end, start, end - start);
-	printf("cclock(): %d - %d = %d\n", end1, start1, end1 - start1);
+	printf("clock():  %lld - %lld = %lld\n", end, start, end - start);
+	printf("cclock(): %lld - %lld = %lld\n", end1, start1, end1 - start1);
 
 	puts("Test noinput time");
 	start = ytime::clock();
@@ -50,7 +51,7 @@ int main(void)
 	end = ytime::clock();
 	end1 = ytime::cclock();
 
-	printf("clock():  %d - %d = %d\n", end, start, end - start);
-	printf("cclock(): %d - %d = %d\n", end1, start1, end1 - start1);
+	printf("clock():  %lld - %lld = %lld\n", end, start, end - start);
+	printf("cclock(): %lld - %lld = %lld\n", end1, start1, end1 - start1);
 	return 0;
 }
