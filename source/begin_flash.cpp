@@ -30,7 +30,7 @@ namespace begin_flash {
 					}
 				std::cout << std::endl;
 			}
-			ytime::ysleep(0.1);
+			ytime::ysleep(100);
 			cursor::up(_map.high);
 		}
 		cursor::down(_map.high);
@@ -56,7 +56,7 @@ namespace begin_flash {
 					}
 				std::cout << std::endl;
 			}
-			ytime::ysleep(0.1);
+			ytime::ysleep(100);
 			cursor::up(_map.high);
 		}
 		color->reset_fore();
@@ -72,9 +72,9 @@ namespace begin_flash {
 			std::cout << info << std::endl;
 			cursor::up();
 			if(speedup)
-				ytime::ysleep(0.2 - 0.01 * i);
+				ytime::ysleep(200 - 10 * i);
 			else
-				ytime::ysleep(0.2);
+				ytime::ysleep(200);
 		}
 		input::clear();
 		cr[0]->reset_fore();
