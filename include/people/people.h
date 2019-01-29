@@ -18,10 +18,11 @@ namespace people {
 		std::queue<pos::Pos> _pos;
 		virtual void _todo() = 0;
 		int _lv;
+		long long _hpmax;
 	public:
 		color::Color *color;
 		char face;
-		long long m_exp;
+		long long m_exp, m_hp;
 		int clever;
 		int goin(floor::Floor *); // 事件：进入地面
 		int move(pos::Pos); // 在 Map 中移动到某位置
@@ -30,7 +31,8 @@ namespace people {
 		void leave_map();
 		pos::Pos get_pos();
 		map::Map *get_map();
-		People(color::Color*, char, int);
+		long long get_hpmax();
+		People(color::Color*, char, int, long long);
 		virtual ~People();
 	};
 };

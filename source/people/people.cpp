@@ -4,8 +4,9 @@
 #include "../../include/color.h"
 
 namespace people {
-	People::People(color::Color *color, char face, int clever):
-		_lv(0), color(color), face(face),  m_exp(0), clever(clever) {
+	People::People(color::Color *color, char face, int clever, long long _hpmax):
+		_lv(0), _hpmax(_hpmax),
+		color(color), face(face), m_exp(0), m_hp(_hpmax), clever(clever) {
 	}
 	People::~People() {
 		delete color;
@@ -45,5 +46,8 @@ namespace people {
 		if(_map.empty())
 			return nullptr;
 		return _map.front();
+	}
+	long long People::get_hpmax() {
+		return _hpmax;
 	}
 };

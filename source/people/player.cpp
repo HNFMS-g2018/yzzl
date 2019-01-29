@@ -7,7 +7,7 @@
 
 namespace people {
 	Player::Player():
-		People(new color::Blue, '@', 3) {
+		People(new color::Blue, '@', 3, 1000) {
 	}
 	Player::~Player() {
 	}
