@@ -62,7 +62,9 @@ namespace people {
 	}
 	void People::injured(long long fight, People *from) {
 		m_hp -= fight;
-		if(m_hp < 0)
+		if(m_hp < 0) {
 			m_hp = 0;
+			leave_map();
+		}
 	}
 };
