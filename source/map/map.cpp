@@ -10,7 +10,6 @@ namespace map {
 		for(int i=0;i<high;i++)
 			for(int j=0;j<width;j++) {
 				delete _floor(i, j);
-				delete _people(i, j);
 			}
 	}
 	int Map::people_move(people::People *p, pos::Pos ol, pos::Pos ne) {

@@ -21,6 +21,5 @@ int main(int, const char **) {
 	}
 	cursor::display();
 	remove("py_output");
-	/* delete self; */ // emm delete city 的同时会 delete self.
 	delete city;
 }

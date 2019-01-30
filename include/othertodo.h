@@ -12,6 +12,7 @@ namespace othertodo {
 		void add_people(people::People*);
 		void todo();
 		Queue();
+		~Queue();
 	};
 };
 #endif
