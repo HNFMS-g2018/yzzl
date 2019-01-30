@@ -6,6 +6,7 @@ namespace people {
 	class Player: public People {
 	protected:
 		void _todo();
+		int _meet(People *);
 		char _fg; // 当前方向
 		char _get_face();
 		void _print_map(int, int);

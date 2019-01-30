@@ -17,6 +17,7 @@ namespace people {
 		std::queue<map::Map *> _map;
 		std::queue<pos::Pos> _pos;
 		virtual void _todo() = 0;
+		virtual int _meet(People *) = 0;
 		int _lv;
 		long long _hpmax, _fight;
 	public:
@@ -34,6 +35,8 @@ namespace people {
 		map::Map *get_map();
 		long long get_hpmax();
 		long long get_fight();
+		int meet(People *);
+		void injured(long long, People *);
 		People(color::Color*, char, int, long long, long long, int);
 		virtual ~People();
 	};

@@ -104,5 +104,9 @@ namespace people {
 			_fg = ' ';
 		delete cr;
 	}
+	int Player::_meet(People *p) {
+		p->injured(get_fight(), this);
+		return 0;
+	}
 };
 

@@ -13,4 +13,8 @@ namespace people {
 		pos::Pos ps = get_pos();
 		move(pos::Pos(ps._x + randx, ps._y + randy));
 	}
+	int Pig::_meet(People *p) {
+		// 不打架
+		return 0;
+	}
 };

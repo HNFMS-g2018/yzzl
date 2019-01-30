@@ -18,8 +18,10 @@ namespace map {
 			return 2; // 越界
 		if(not _floor(ne))
 			return 2; // 越界
-		if(_people(ne))
-			return 1; // 无法移动，该位置正忙
+		if(_people(ne)) {
+			p -> meet(_people(ne)); // 打一架
+			return 1;
+		}
 		int gores = p->goin(_floor(ne)); // 尝试进入，触发事件 goin
 		if(gores)
 			return 3; // 被阻止

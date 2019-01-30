@@ -56,4 +56,13 @@ namespace people {
 	long long People::get_fight() {
 		return _fight;
 	}
+	int People::meet(People *p) {
+		int res = _meet(p);
+		return res;
+	}
+	void People::injured(long long fight, People *from) {
+		m_hp -= fight;
+		if(m_hp < 0)
+			m_hp = 0;
+	}
 };

@@ -5,6 +5,7 @@ namespace people {
 	class Pig: public People {
 	protected:
 		void _todo();
+		int _meet(People *);
 	public:
 		Pig();
 		~Pig();
