@@ -37,6 +37,7 @@ namespace people {
 		_pos.push(ne);
 	}
 	void People::leave_map() {
+		get_map() -> after_leave(this);
 		_map.pop();
 		_pos.pop();
 	}
