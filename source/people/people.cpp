@@ -6,10 +6,10 @@
 
 namespace people {
 	People::People(color::Color *color, char face, int clever,
-			long long _hpmax, long long _fight):
+			long long _hpmax, long long _fight, int speed):
 		_lv(0), _hpmax(_hpmax), _fight(_fight),
-		_sleep_to(ytime::clock()),
-		color(color), face(face), m_exp(0), m_hp(_hpmax), clever(clever) {
+		color(color), face(face), m_exp(0), m_hp(_hpmax),
+		clever(clever), speed(speed) {
 	}
 	People::~People() {
 		delete color;
@@ -29,8 +29,7 @@ namespace people {
 		return moveres;
 	}
 	void People::todo() {
-		if(ytime::clock() >= _sleep_to)
-			_todo();
+		_todo();
 	}
 	void People::join_map(map::Map *m) {
 		_map.push(m);

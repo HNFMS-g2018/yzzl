@@ -19,12 +19,12 @@ namespace people {
 		virtual void _todo() = 0;
 		int _lv;
 		long long _hpmax, _fight;
-		unsigned long long _sleep_to;
 	public:
 		color::Color *color;
 		char face;
 		long long m_exp, m_hp;
 		int clever;
+		int speed;
 		int goin(floor::Floor *); // 事件：进入地面
 		int move(pos::Pos); // 在 Map 中移动到某位置
 		void todo(); // 观察，作出决策
@@ -34,7 +34,7 @@ namespace people {
 		map::Map *get_map();
 		long long get_hpmax();
 		long long get_fight();
-		People(color::Color*, char, int, long long, long long);
+		People(color::Color*, char, int, long long, long long, int);
 		virtual ~People();
 	};
 };
