@@ -97,7 +97,7 @@ namespace people {
 		color::Color *cr = new color::Random();
 		begin_flash::box(pos::Pos(0, width * 2 + 1), 5, 40, 0, cr);
 		_print_info(high << 1 | 1, width << 1 | 1);
-		int choose = input::ifgetch(0.2);
+		int choose = input::ifgetch(0.1);
 		if(~ choose)
 			_analyze_choose(choose);
 		else
