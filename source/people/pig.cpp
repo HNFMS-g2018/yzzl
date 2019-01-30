@@ -3,7 +3,7 @@
 
 namespace people {
 	Pig::Pig():
-		People(new color::Red, 'P', 0, 100) {
+		People(new color::Red, 'P', 0, 100, 0) {
 	}
 	Pig::~Pig() {
 	}

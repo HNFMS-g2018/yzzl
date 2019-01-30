@@ -18,7 +18,7 @@ namespace people {
 		std::queue<pos::Pos> _pos;
 		virtual void _todo() = 0;
 		int _lv;
-		long long _hpmax;
+		long long _hpmax, _fight;
 		unsigned long long _sleep_to;
 	public:
 		color::Color *color;
@@ -33,7 +33,7 @@ namespace people {
 		pos::Pos get_pos();
 		map::Map *get_map();
 		long long get_hpmax();
-		People(color::Color*, char, int, long long);
+		People(color::Color*, char, int, long long, long long);
 		virtual ~People();
 	};
 };

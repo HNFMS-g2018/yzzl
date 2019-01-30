@@ -5,8 +5,10 @@
 #include "../../include/ytime.h"
 
 namespace people {
-	People::People(color::Color *color, char face, int clever, long long _hpmax):
-		_lv(0), _hpmax(_hpmax), _sleep_to(ytime::clock()),
+	People::People(color::Color *color, char face, int clever,
+			long long _hpmax, long long _fight):
+		_lv(0), _hpmax(_hpmax), _fight(_fight),
+		_sleep_to(ytime::clock()),
 		color(color), face(face), m_exp(0), m_hp(_hpmax), clever(clever) {
 	}
 	People::~People() {
