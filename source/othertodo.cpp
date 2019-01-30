@@ -6,11 +6,12 @@ namespace othertodo {
 	Queue::Queue() {
 	}
 	Queue::~Queue() {
-		for(auto p : _vector)
+		for(auto p : _self_vector)
 			delete p;
 	}
 	void Queue::add_people(people::People* p) {
 		_vector.push_back(p);
+		_self_vector.push_back(p);
 	}
 	void Queue::todo() {
 		for(auto p : _vector) {
