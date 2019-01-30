@@ -12,5 +12,6 @@ namespace people {
 		int randx = -1 + rand()%3, randy = -1 + rand()%3;
 		pos::Pos ps = get_pos();
 		move(pos::Pos(ps._x + randx, ps._y + randy));
+		_sleep_to += 1000;
 	}
 };
