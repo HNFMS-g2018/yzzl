@@ -21,6 +21,7 @@ namespace map {
 		virtual pos::Pos recieve(people::People *) = 0;
 		floor::Floor *get_floor(pos::Pos, int, int);
 		people::People *get_people(pos::Pos, int, int);
+		void after_leave(people::People *);
 		Map(int, int, std::string);
 		virtual ~Map();
 	};

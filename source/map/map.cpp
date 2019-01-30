@@ -35,4 +35,8 @@ namespace map {
 	people::People *Map::get_people(pos::Pos ps, int dx, int dy) {
 		return _people(ps._x + dx, ps._y + dy);
 	}
+	void Map::after_leave(people::People *p) {
+		pos::Pos ps = p -> get_pos();
+		_people(ps) = nullptr;
+	}
 };

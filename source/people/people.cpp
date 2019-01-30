@@ -37,6 +37,7 @@ namespace people {
 		_pos.push(ne);
 	}
 	void People::leave_map() {
+		get_map() -> after_leave(this);
 		_map.pop();
 		_pos.pop();
 	}
@@ -62,7 +63,9 @@ namespace people {
 	}
 	void People::injured(long long fight, People *from) {
 		m_hp -= fight;
-		if(m_hp < 0)
+		if(m_hp < 0) {
 			m_hp = 0;
+			leave_map();
+		}
 	}
 };
