@@ -3,7 +3,7 @@
 
 namespace people {
 	Pig::Pig():
-		People(new color::Red, 'P', 0, 100, 0, 5) {
+		People(new color::Red, 'P', 0, 100, 3, 5) {
 	}
 	Pig::~Pig() {
 	}
@@ -15,6 +15,7 @@ namespace people {
 	}
 	int Pig::_meet(People *p) {
 		// 不打架
+		p -> injured(get_fight(), this);
 		return 0;
 	}
 };
