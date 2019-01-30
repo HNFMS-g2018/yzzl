@@ -1,8 +1,9 @@
 #include "../../include/map/maincity.h"
 #include "../../include/floor/base_floor.h"
-#include "../../include/people/people.h"
+#include "../../include/all_people.h"
 #include "../../include/color.h"
 #include "../../include/begin_flash.h"
+#include "../../include/othertodo.h"
 
 namespace map {
 	Maincity::_thanks::_thanks():
@@ -24,6 +25,10 @@ namespace map {
 		for(int j=10;j<19;j++)
 			_floor(5, j) = new floor::Grass();
 		_floor(5, 19) = new _thanks();
+		// 生物
+		people::People *p = new people::Pig();
+		p->join_map(this);
+		_que.add_people(p);
 	}
 	Maincity::~Maincity() {
 	}

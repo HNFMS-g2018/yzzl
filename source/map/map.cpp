@@ -10,7 +10,6 @@ namespace map {
 		for(int i=0;i<high;i++)
 			for(int j=0;j<width;j++) {
 				delete _floor(i, j);
-				delete _people(i, j);
 			}
 	}
 	int Map::people_move(people::People *p, pos::Pos ol, pos::Pos ne) {
@@ -19,8 +18,10 @@ namespace map {
 			return 2; // 越界
 		if(not _floor(ne))
 			return 2; // 越界
-		if(_people(ne))
-			return 1; // 无法移动，该位置正忙
+		if(_people(ne)) {
+			p -> meet(_people(ne)); // 打一架
+			return 1;
+		}
 		int gores = p->goin(_floor(ne)); // 尝试进入，触发事件 goin
 		if(gores)
 			return 3; // 被阻止

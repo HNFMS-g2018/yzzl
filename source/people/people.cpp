@@ -2,11 +2,14 @@
 #include "../../include/floor/floor.h"
 #include "../../include/map/map.h"
 #include "../../include/color.h"
+#include "../../include/ytime.h"
 
 namespace people {
-	People::People(color::Color *color, char face, int clever, long long _hpmax):
-		_lv(0), _hpmax(_hpmax),
-		color(color), face(face), m_exp(0), m_hp(_hpmax), clever(clever) {
+	People::People(color::Color *color, char face, int clever,
+			long long _hpmax, long long _fight, int speed):
+		_lv(0), _hpmax(_hpmax), _fight(_fight),
+		color(color), face(face), m_exp(0), m_hp(_hpmax),
+		clever(clever), speed(speed) {
 	}
 	People::~People() {
 		delete color;
@@ -49,5 +52,17 @@ namespace people {
 	}
 	long long People::get_hpmax() {
 		return _hpmax;
+	}
+	long long People::get_fight() {
+		return _fight;
+	}
+	int People::meet(People *p) {
+		int res = _meet(p);
+		return res;
+	}
+	void People::injured(long long fight, People *from) {
+		m_hp -= fight;
+		if(m_hp < 0)
+			m_hp = 0;
 	}
 };

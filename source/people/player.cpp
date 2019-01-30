@@ -8,7 +8,7 @@
 
 namespace people {
 	Player::Player():
-		People(new color::Blue, '@', 3, 1000) {
+		People(new color::Blue, '@', 3, 1000, 10, 0) {
 	}
 	Player::~Player() {
 	}
@@ -97,12 +97,16 @@ namespace people {
 		color::Color *cr = new color::Random();
 		begin_flash::box(pos::Pos(0, width * 2 + 1), 5, 40, 0, cr);
 		_print_info(high << 1 | 1, width << 1 | 1);
-		int choose = input::ifgetch(0.2);
+		int choose = input::ifgetch(0.1);
 		if(~ choose)
 			_analyze_choose(choose);
 		else
 			_fg = ' ';
 		delete cr;
+	}
+	int Player::_meet(People *p) {
+		p->injured(get_fight(), this);
+		return 0;
 	}
 };
 

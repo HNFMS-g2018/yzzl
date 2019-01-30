@@ -1,6 +1,7 @@
 #ifndef map_H
 #define map_H
 #include "../pos.h"
+#include "../othertodo.h"
 namespace people {
 	class People;
 };
@@ -12,6 +13,7 @@ namespace map {
 	protected:
 		pos::Coord_map<floor::Floor*> _floor;
 		pos::Coord_map<people::People*> _people;
+		othertodo::Queue _que;
 	public:
 		int high, width;
 		std::string name;
