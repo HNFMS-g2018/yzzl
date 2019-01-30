@@ -2,10 +2,11 @@
 #include "../../include/floor/floor.h"
 #include "../../include/map/map.h"
 #include "../../include/color.h"
+#include "../../include/ytime.h"
 
 namespace people {
 	People::People(color::Color *color, char face, int clever, long long _hpmax):
-		_lv(0), _hpmax(_hpmax),
+		_lv(0), _hpmax(_hpmax), _sleep_to(ytime::clock()),
 		color(color), face(face), m_exp(0), m_hp(_hpmax), clever(clever) {
 	}
 	People::~People() {
@@ -26,7 +27,8 @@ namespace people {
 		return moveres;
 	}
 	void People::todo() {
-		_todo();
+		if(ytime::clock() >= _sleep_to)
+			_todo();
 	}
 	void People::join_map(map::Map *m) {
 		_map.push(m);

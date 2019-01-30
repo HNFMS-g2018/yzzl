@@ -19,6 +19,7 @@ namespace people {
 		virtual void _todo() = 0;
 		int _lv;
 		long long _hpmax;
+		unsigned long long _sleep_to;
 	public:
 		color::Color *color;
 		char face;
