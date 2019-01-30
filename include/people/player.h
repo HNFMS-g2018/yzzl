@@ -8,8 +8,8 @@ namespace people {
 		void _todo();
 		char _fg; // 当前方向
 		char _get_face();
-		void _print_map();
-		void _print_info();
+		void _print_map(int, int);
+		void _print_info(int, int);
 		void _analyze_choose(char);
 	public:
 		int login(std::string, std::string);

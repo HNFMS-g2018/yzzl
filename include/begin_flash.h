@@ -20,5 +20,6 @@ namespace begin_flash {
 	void flash(std::string, bool);
 	void thanks();
 	void progress_bar(double, int);
+	void box(pos::Pos, int, int, int, color::Color*);
 };
 #endif
