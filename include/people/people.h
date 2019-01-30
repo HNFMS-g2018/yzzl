@@ -33,6 +33,7 @@ namespace people {
 		pos::Pos get_pos();
 		map::Map *get_map();
 		long long get_hpmax();
+		long long get_fight();
 		People(color::Color*, char, int, long long, long long);
 		virtual ~People();
 	};

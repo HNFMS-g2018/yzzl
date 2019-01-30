@@ -54,4 +54,7 @@ namespace people {
 	long long People::get_hpmax() {
 		return _hpmax;
 	}
+	long long People::get_fight() {
+		return _fight;
+	}
 };
