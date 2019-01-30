@@ -14,14 +14,15 @@ namespace othertodo {
 		_self_vector.push_back(p);
 	}
 	void Queue::todo() {
-		for(auto &pr : _vector) {
-			if(not pr.second) {
-				pr.first->todo();
-				pr.second = pr.first -> speed;
+		for(auto &pr : _vector)
+			if(pr.first -> get_map()) {
+				if(not pr.second) {
+					pr.first->todo();
+					pr.second = pr.first -> speed;
+				}
+				else {
+					pr.second --;
+				}
 			}
-			else {
-				pr.second --;
-			}
-		}
 	}
 };
